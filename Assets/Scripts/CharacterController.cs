@@ -14,7 +14,8 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         //Gravity 
-        Debug.Log("Hallå");
+        Debug.Log("Hej");
+        Debug.Log("Hallï¿½");
         Vector3 gravityPosition = transform.position; //Copy Character Pos
         gravityPosition.y -= GravityPerSecond * Time.deltaTime; //Subtract Gravity*Deltatime
 
