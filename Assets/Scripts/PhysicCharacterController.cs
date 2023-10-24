@@ -18,44 +18,39 @@ public class PhysicsCharacterController : MonoBehaviour
     //Jump 
     public float JumpSpeedFactor = 3.0f; //How much faster is the jump than the movespeed?
     public float JumpMaxHeight = 150.0f;
-    [SerializeField]
-    private float JumpHeightDelta = 0.0f;
+    //How far have we flew this jump?
+    public float JumpHeightDelta = 0.0f;
+   
     //Movement
     public float MovementSpeedPerSecond = 10.0f; //Movement Speed
 
-
-
-
-
-    void FixedUpdate()
+    private void Update()
     {
-        Vector3 characterVelocity = myRigidBody.velocity;
-        characterVelocity.x = 0.0f;
-        characterVelocity.y = 0.0f;
-
-        if(JumpingState != CharacterState.Jumping)
-        {
-            JumpingState = CharacterState.Grounded;
-        }
-        //Up
-        if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
+        if (Input.GetKeyDown(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping; //Set character to jumping
             JumpHeightDelta = 0.0f; //Restart Counting Jumpdistance
         }
+    }
 
+    void FixedUpdate()
+    {
+        //Copy Velocity
+        Vector3 characterVelocity = myRigidBody.velocity;
+        characterVelocity.x = 0.0f;
+        
+        //Jump
         if (JumpingState == CharacterState.Jumping)
         {
-            
-            float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor;
-            characterVelocity.y += totalJumpMovementThisFrame;
+            float jumpMovement = MovementSpeedPerSecond * JumpSpeedFactor;
+            characterVelocity.y = jumpMovement;
 
-            JumpHeightDelta += totalJumpMovementThisFrame;
+            JumpHeightDelta += jumpMovement*Time.deltaTime;
+
             if (JumpHeightDelta >= JumpMaxHeight)
             {
                 JumpingState = CharacterState.Airborne;
-                JumpHeightDelta = 0.0f;
-                characterVelocity.y = 0.0f;
+               
             }
         }
 
