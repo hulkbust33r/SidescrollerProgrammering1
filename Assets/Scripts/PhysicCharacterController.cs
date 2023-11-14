@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PhysicsCharacterController : MonoBehaviour
 {
-    public List<Sprite> CharacterSprites = new List<Sprite>();
+    public SpriteRenderer mySpriteRenderer = null;
+    public List<Sprite> Charactersprites = new List<Sprite>();
     //Player Health
     public int HP = 0;
 
@@ -32,7 +33,28 @@ public class PhysicsCharacterController : MonoBehaviour
 
     private void Update()
     {
-        
+        //Copy our HP-1 to new Variable
+        int hpCopy = HP-1;
+        //If hpCopy is lesser(<) than Zero(0), set it to Zero(0)    
+        if (hpCopy < 0)
+        {
+            hpCopy = 0;
+        }
+        //If hpCopy is larger or equal to the number of different
+        //Sprites in Charactersprites, set it to that number minus one(-1)
+        if (hpCopy >= Charactersprites.Count)
+        {
+            hpCopy = Charactersprites.Count - 1;
+        }
+        //Assign Correct Sprite to renderer component
+        mySpriteRenderer.sprite = Charactersprites[hpCopy];
+
+
+
+
+
+
+
 
 
         if (Input.GetKeyDown(KeyCode.W) && JumpingState == CharacterState.Grounded)

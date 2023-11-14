@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 407001922768580503}
   - component: {fileID: 4538979777114699578}
   - component: {fileID: 5008098055389862247}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CollisionCheckObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,6 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d8cbad2ae961745ae294677593f8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySpriteRenderer: {fileID: 8129897813946286170}
+  Charactersprites:
+  - {fileID: 21300000, guid: 98167fbad2188724ba6888e86c72b5fc, type: 3}
+  - {fileID: 21300000, guid: 646257212e0e4414abd80cc5b1351c64, type: 3}
+  - {fileID: 21300000, guid: 8a0ea8ff2d4cec0488b9d297269db54b, type: 3}
+  HP: 0
   myRigidBody: {fileID: 2633350262284907134}
   JumpingState: 1
   GravityPerSecond: 160
