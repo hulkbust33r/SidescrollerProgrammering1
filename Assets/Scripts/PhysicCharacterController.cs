@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PhysicsCharacterController : MonoBehaviour
 {
+    public List<Sprite> CharacterSprites = new List<Sprite>();
+    //Player Health
+    public int HP = 0;
+
     //Refrence to rigidbody on same object
     public Rigidbody2D myRigidBody = null;
 
@@ -24,8 +28,13 @@ public class PhysicsCharacterController : MonoBehaviour
     //Movement
     public float MovementSpeedPerSecond = 10.0f; //Movement Speed
 
+  
+
     private void Update()
     {
+        
+
+
         if (Input.GetKeyDown(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping; //Set character to jumping
