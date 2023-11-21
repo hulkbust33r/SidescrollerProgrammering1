@@ -33,6 +33,20 @@ public class PhysicsCharacterController : MonoBehaviour
 
     private void Update()
     {
+        //Check if HP is lesser than Zero
+        if(HP <= 0)
+        {
+            //Try To get a reference to SceneloaderScript on this gameobject
+            Sceneloader mySceneLoader = gameObject.GetComponent<Sceneloader>();
+            //Check if We Succeeded?
+            if(mySceneLoader != null)
+            {
+                //Load the gameover-scene
+                mySceneLoader.LoadScene("Game Over");
+            }
+        }
+
+
         //Copy our HP-1 to new Variable
         int hpCopy = HP-1;
         //If hpCopy is lesser(<) than Zero(0), set it to Zero(0)    
@@ -48,13 +62,6 @@ public class PhysicsCharacterController : MonoBehaviour
         }
         //Assign Correct Sprite to renderer component
         mySpriteRenderer.sprite = Charactersprites[hpCopy];
-
-
-
-
-
-
-
 
 
         if (Input.GetKeyDown(KeyCode.W) && JumpingState == CharacterState.Grounded)
@@ -97,6 +104,11 @@ public class PhysicsCharacterController : MonoBehaviour
         }
         myRigidBody.velocity = characterVelocity;
 
+    }
+
+    public void TakeDamage(int aHPValue)
+    {
+        HP += aHPValue;
     }
 }
 
