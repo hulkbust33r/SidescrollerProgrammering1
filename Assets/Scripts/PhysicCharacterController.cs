@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
@@ -5,6 +6,8 @@ using UnityEngine;
 
 public class PhysicsCharacterController : MonoBehaviour
 {
+    public PlayerData Savefile = null;
+    public GameObject myCollisionCheckObject = null;
     public SpriteRenderer mySpriteRenderer = null;
     public List<Sprite> Charactersprites = new List<Sprite>();
     //Player Health
@@ -61,7 +64,14 @@ public class PhysicsCharacterController : MonoBehaviour
             hpCopy = Charactersprites.Count - 1;
         }
         //Assign Correct Sprite to renderer component
-        mySpriteRenderer.sprite = Charactersprites[hpCopy];
+        if(mySpriteRenderer.sprite != Charactersprites[hpCopy])
+        {
+            mySpriteRenderer.sprite = Charactersprites[hpCopy];
+            Destroy(GetComponent<PolygonCollider2D>());
+            var polygonCollider = gameObject.AddComponent<PolygonCollider2D>();
+            myCollisionCheckObject.transform.position = polygonCollider.ClosestPoint(myCollisionCheckObject.transform.position);
+        }
+    
 
 
         if (Input.GetKeyDown(KeyCode.W) && JumpingState == CharacterState.Grounded)

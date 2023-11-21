@@ -117,9 +117,9 @@ GameObject:
   - component: {fileID: 3974977069975291668}
   - component: {fileID: 8129897813946286170}
   - component: {fileID: 2633350262284907134}
-  - component: {fileID: 6990137774688114095}
   - component: {fileID: 3994883305586820641}
   - component: {fileID: 45275226147298749}
+  - component: {fileID: 5766228869249613362}
   m_Layer: 0
   m_Name: MARIO
   m_TagString: Untagged
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 646257212e0e4414abd80cc5b1351c64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 98167fbad2188724ba6888e86c72b5fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -223,51 +223,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6990137774688114095
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3372384044987676097}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 16, y: 32}
-    newSize: {x: 0.16, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 32}
-  m_EdgeRadius: 0
 --- !u!114 &3994883305586820641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d8cbad2ae961745ae294677593f8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myCollisionCheckObject: {fileID: 1150217595110918181}
   mySpriteRenderer: {fileID: 8129897813946286170}
   Charactersprites:
   - {fileID: 21300000, guid: 98167fbad2188724ba6888e86c72b5fc, type: 3}
@@ -306,6 +262,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b2c0bedf4817843add4f8eff60fabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &5766228869249613362
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372384044987676097}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 16}
+    newSize: {x: 0.16, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -8, y: 16}
+      - {x: -8, y: -16}
+      - {x: 8, y: -16}
+      - {x: 8, y: 16}
+    - - {x: 0, y: 6}
+      - {x: 0, y: 12}
+      - {x: -1, y: 12}
+      - {x: -1, y: 6}
+      - {x: 0, y: 5}
+      - {x: -2, y: 4}
+      - {x: -1, y: 4}
+  m_UseDelaunayMesh: 0
 --- !u!1001 &7077103223567161287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,6 +326,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3974977069975291668}
     m_Modifications:
+    - target: {fileID: 1048145691875481172, guid: a91c40e1821c7644ebf163e7665c43b4, type: 3}
+      propertyPath: orthographic size
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 3866381142724787500, guid: a91c40e1821c7644ebf163e7665c43b4, type: 3}
       propertyPath: m_Name
       value: Main Camera
